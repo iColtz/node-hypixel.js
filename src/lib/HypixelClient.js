@@ -18,7 +18,7 @@ class HypixelClient {
       return body;
     }
     catch (error) {
-      console.log(new Error(error));
+      throw new Error(error);
     }
   }
 
@@ -33,7 +33,7 @@ class HypixelClient {
       return body;
     }
     catch (error) {
-      console.log(new Error(error));
+      throw new Error(error);
     }
   }
 }
