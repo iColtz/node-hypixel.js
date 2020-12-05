@@ -8,12 +8,13 @@ class HypixelClient {
   }
 
   /**
-   * Fetch a player using their display name.
-   * @param {string} displayName - The display name of the player.
+   * Fetch a player.
+   * @param {string} method - The method on how to fetch the player, either uuid or name.
+   * @param {string} query - The players UUID or display name.
    */
-  async getPlayerByDisplayname(displayName) {
+  async _getPlayer(method, query) {
     try {
-      const data = await fetch(this.API + 'player?key=' + this.key + '&name=' + displayName);
+      const data = await fetch(`${this.API}player?key=${this.key}&${method}=${query}`);
       const body = await data.json();
       return body;
     }
@@ -23,18 +24,19 @@ class HypixelClient {
   }
 
   /**
+   * Fetch a player using their display name.
+   * @param {string} displayName - The display name of the player.
+   */
+  getPlayerByDisplayname(displayName) {
+    return this._getPlayer('name', displayName);
+  }
+
+  /**
    * Fetch the player using their UUID.
    * @param {string} uuid - The UUID of the player.
    */
   async getPlayerByUUID(uuid) {
-    try {
-      const data = await fetch(this.API + 'player?key=' + this.key + '&uuid=' + uuid);
-      const body = await data.json();
-      return body;
-    }
-    catch (error) {
-      throw new Error(error);
-    }
+    return this._getPlayer('uuid', uuid);
   }
 }
 
