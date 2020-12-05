@@ -194,6 +194,27 @@ class HypixelClient {
       throw new Error(error);
     }
   }
+  /**
+   * Provides an endpoint to retrieve resources which don't change often.
+   * @param {string} resource - The resource to fetch, either one of the following:
+   * • achievements
+   * • challenges
+   * • quests
+   * • guilds/achievements
+   * • guilds/permissions
+   * • skyblock/collections
+   * • skyblock/skills
+   */
+  async getResources(resource) {
+    try {
+      const data = await fetch(`https://api.hypixel.net/resources/${resource}`);
+      const body = await data.json();
+      return body;
+    }
+    catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = HypixelClient;
