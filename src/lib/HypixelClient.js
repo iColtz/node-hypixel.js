@@ -76,6 +76,17 @@ class HypixelClient {
       throw new Error(error);
     }
   }
+
+  async getBoosters() {
+    try {
+      const data = await fetch(`${this.API}boosters?key=${this.key}`);
+      const body = await data.json();
+      return body;
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 module.exports = HypixelClient;
