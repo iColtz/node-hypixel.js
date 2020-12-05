@@ -150,6 +150,21 @@ class HypixelClient {
   getGuildByName(name) {
     return this._findGuild('byName', name);
   }
+
+  /**
+   * Returns the friends list of a player.
+   * @param {string} uuid - The UUID of the player.
+   */
+  async getFriends(uuid) {
+    try {
+      const data = await fetch(`${this.API}friends?key=${this.key}&uuid=${uuid}`);
+      const body = await data.json();
+      return body;
+    }
+    catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = HypixelClient;
