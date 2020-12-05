@@ -38,6 +38,20 @@ class HypixelClient {
   async getPlayerByUUID(uuid) {
     return this._getPlayer('uuid', uuid);
   }
+
+  /**
+   * Get the current online player count of hypixel.
+   */
+  async getPlayerCount() {
+    try {
+      const data = await fetch(`${this.API}playerCount?key=${this.key}`);
+      const body = await data.json();
+      return body;
+    }
+    catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = HypixelClient;
