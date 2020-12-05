@@ -40,6 +40,30 @@ class HypixelClient {
   }
 
   /**
+   * Fetch the players status.
+   * @param {string} method - The method on how to fetch the player status.
+   * @param {string} query - The players UUID.
+   */
+  async _getPlayerStats(method, query) {
+    try {
+      const data = await fetch(`${this.API}status?key=${this.key}&${method}=${query}`);
+      const body = await data.json();
+      return body;
+    }
+    catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  /**
+   * Fetch a players status.
+   * @param {string} uuid - The players uuid.
+   */
+  getPlayerStatusByUUID(uuid) {
+    return this._getPlayerStats('uuid', uuid);
+  }
+
+  /**
    * Get the current online player count of hypixel.
    */
   async getPlayerCount() {
