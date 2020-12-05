@@ -207,7 +207,7 @@ class HypixelClient {
    */
   async getResources(resource) {
     try {
-      const data = await fetch(`https://api.hypixel.net/resources/${resource}`);
+      const data = await fetch(`${this.API}resources/${resource}`);
       const body = await data.json();
       return body;
     }
