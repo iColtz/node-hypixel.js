@@ -215,6 +215,20 @@ class HypixelClient {
       throw new Error(error);
     }
   }
+
+  /**
+   * Returns stats about Watchdogs and staff bans.
+   */
+  async getWatchdogStats() {
+    try {
+      const data = await fetch(`${this.API}watchdogstats?key=${this.key}`);
+      const body = await data.json();
+      return body;
+    }
+    catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = HypixelClient;
