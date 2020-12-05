@@ -8,7 +8,7 @@ class HypixelClient {
   }
 
   /**
-   * Fetch a player.
+   * Fetchs a player.
    * @param {string} method - The method on how to fetch the player, either uuid or name.
    * @param {string} query - The players UUID or display name.
    */
@@ -24,7 +24,7 @@ class HypixelClient {
   }
 
   /**
-   * Fetch a player using their display name.
+   * Returns the players data.
    * @param {string} displayName - The display name of the player.
    */
   getPlayerByDisplayname(displayName) {
@@ -32,7 +32,7 @@ class HypixelClient {
   }
 
   /**
-   * Fetch the player using their UUID.
+   * Returns the players data.
    * @param {string} uuid - The UUID of the player.
    */
   async getPlayerByUUID(uuid) {
@@ -56,7 +56,7 @@ class HypixelClient {
   }
 
   /**
-   * Fetch a players status.
+   * Returns the online stats information about a player.
    * @param {string} uuid - The players uuid.
    */
   getPlayerStatusByUUID(uuid) {
@@ -64,7 +64,7 @@ class HypixelClient {
   }
 
   /**
-   * Get the current online player count of hypixel.
+   * Get the current online player count of Hypixel.
    */
   async getPlayerCount() {
     try {
@@ -77,6 +77,9 @@ class HypixelClient {
     }
   }
 
+  /**
+   * Returns list of boosters.
+   */
   async getBoosters() {
     try {
       const data = await fetch(`${this.API}boosters?key=${this.key}`);
@@ -88,6 +91,9 @@ class HypixelClient {
     }
   }
 
+  /**
+   * Returns the player count of each public game + mode on the server.
+   */
   async getGameCounts() {
     try {
       const data = await fetch(`${this.API}gameCounts?key=${this.key}`);
@@ -99,6 +105,9 @@ class HypixelClient {
     }
   }
 
+  /**
+   * Returns a list of the leaderboards and their current standings for games.
+   */
   async getLeaderboard() {
     try {
       const data = await fetch(`${this.API}leaderboards?key=${this.key}`);
