@@ -165,6 +165,20 @@ class HypixelClient {
       throw new Error(error);
     }
   }
+
+  /**
+   * Returns information about the key.
+   */
+  async getKey() {
+    try {
+      const data = await fetch(`${this.API}key?key=${this.key}&key=${this.key}`);
+      const body = await data.json();
+      return body;
+    }
+    catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = HypixelClient;
