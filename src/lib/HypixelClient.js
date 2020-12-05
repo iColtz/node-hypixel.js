@@ -7,9 +7,28 @@ class HypixelClient {
     this.API = 'https://api.hypixel.net/';
   }
 
-  async getPlayer(displayName) {
+  /**
+   * Fetch a player using their display name.
+   * @param {string} displayName - The display name of the player.
+   */
+  async getPlayerByDisplayname(displayName) {
     try {
       const data = await fetch(this.API + 'player?key=' + this.key + '&name=' + displayName);
+      const body = await data.json();
+      return body;
+    }
+    catch (error) {
+      console.log(new Error(error));
+    }
+  }
+
+  /**
+   * Fetch the player using their UUID.
+   * @param {string} uuid - The UUID of the player.
+   */
+  async getPlayerByUUID(uuid) {
+    try {
+      const data = await fetch(this.API + 'player?key=' + this.key + '&uuid=' + uuid);
       const body = await data.json();
       return body;
     }
