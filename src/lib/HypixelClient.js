@@ -142,6 +142,14 @@ class HypixelClient {
   getGuildByUUID(uuid) {
     return this._findGuild('byUuid', uuid);
   }
+
+  /**
+   * Returns the id of the requested guild.
+   * @param {string} name - The name of the guild.
+   */
+  getGuildByName(name) {
+    return this._findGuild('byName', name);
+  }
 }
 
 module.exports = HypixelClient;
