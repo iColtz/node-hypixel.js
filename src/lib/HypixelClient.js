@@ -1,6 +1,10 @@
 const fetch = require('node-fetch');
 
 class HypixelClient {
+  /**
+   * Hypixel Client.
+   * @param {string} key - Players API key.
+   */
   constructor(key) {
     this.key = key;
 
