@@ -118,6 +118,30 @@ class HypixelClient {
       throw new Error(error);
     }
   }
+
+  /**
+   * Fetchs a guild.
+   * @param {string} method - The method on how to fetch the guild, either byUuid or byName.
+   * @param {string} query - The players UUID or displayname.
+   */
+  async _findGuild(method, query) {
+    try {
+      const data = await fetch(`${this.API}findGuild?key=${this.key}&${method}=${query}`);
+      const body = await data.json();
+      return body;
+    }
+    catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  /**
+   * Returns the id of the requested guild.
+   * @param {string} uuid - The UUID of the player.
+   */
+  getGuildByUUID(uuid) {
+    return this._findGuild('byUuid', uuid);
+  }
 }
 
 module.exports = HypixelClient;
