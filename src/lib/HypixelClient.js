@@ -87,6 +87,17 @@ class HypixelClient {
       console.log(error);
     }
   }
+
+  async getGameCounts() {
+    try {
+      const data = await fetch(`${this.API}gameCounts?key=${this.key}`);
+      const body = await data.json();
+      return body;
+    }
+    catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = HypixelClient;
