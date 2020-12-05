@@ -98,6 +98,17 @@ class HypixelClient {
       throw new Error(error);
     }
   }
+
+  async getLeaderboard() {
+    try {
+      const data = await fetch(`${this.API}leaderboards?key=${this.key}`);
+      const body = await data.json();
+      return body;
+    }
+    catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = HypixelClient;
