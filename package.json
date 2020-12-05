@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/iColtz/hypixel-api/issues"
   },
-  "homepage": "https://github.com/iColtz/hypixel-api#readme"
+  "homepage": "https://github.com/iColtz/hypixel-api#readme",
+  "devDependencies": {
+    "eslint": "^7.15.0"
+  }
 }
