@@ -179,6 +179,21 @@ class HypixelClient {
       throw new Error(error);
     }
   }
+
+  /**
+   * Returns the recent games of a player.
+   * @param {string} uuid - The UUID of the player.
+   */
+  async getRecentGames(uuid) {
+    try {
+      const data = await fetch(`${this.API}recentGames?key=${this.key}&uuid=${uuid}`);
+      const body = await data.json();
+      return body;
+    }
+    catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = HypixelClient;
