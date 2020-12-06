@@ -181,7 +181,7 @@ class HypixelClient {
    * @param {string} query - The players UUID or displayname.
    */
   _findGuild(method, query) {
-    this._fetch(`${API}findGuild?key=${this.key}&${method}=${query}`);
+    return this._fetch(`${API}findGuild?key=${this.key}&${method}=${query}`);
   }
 
   /**
