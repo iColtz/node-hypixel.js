@@ -67,21 +67,21 @@ class HypixelClient {
        * Returns SkyBlock auctions that are currently active in the in-game auction house.
        * @param {number} page - The auction page index.
        */
-      async getAuctions(page = 0) {
+      getAuctions(page = 0) {
         return this._fetch(`${API}skyblock/auctions?key=${key}&page=${page}`);
       },
 
       /**
        * Returns the list of products along with their sell summary, buy summary and quick status.
        */
-      async getBazaar() {
+      getBazaar() {
         return this._fetch(`${API}skyblock/bazaar?key=${key}`);
       },
 
       /**
        * Returns SkyBlock news, including a title, description and a thread.
        */
-      async getNews() {
+      getNews() {
         return this._fetch(`${API}skyblock/news?key=${key}`);
       },
 
@@ -89,7 +89,7 @@ class HypixelClient {
        * Returns a SkyBlock profile's data.
        * @param {string} profile - The profile ID.
        */
-      async getProfile(profile) {
+      getProfile(profile) {
         return this._fetch(`${API}skyblock/profile?key=${key}&profile=${profile}`);
       },
 
@@ -97,7 +97,7 @@ class HypixelClient {
        * Returns an array of SkyBlock profile's data.
        * @param {string} uuid - The players UUID.
        */
-      async getProfiles(uuid) {
+      getProfiles(uuid) {
         return this._fetch(`${API}skyblock/profiles?key=${key}&uuid=${uuid}`);
       },
     };
