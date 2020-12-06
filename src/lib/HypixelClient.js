@@ -222,6 +222,7 @@ class HypixelClient {
   getRecentGames(uuid) {
     return this._fetch(`${API}recentGames?key=${this.key}&uuid=${uuid}`);
   }
+
   /**
    * Provides an endpoint to retrieve resources which don't change often.
    * @param {string} resource - The resource to fetch, either one of the following:
