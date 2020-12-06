@@ -173,7 +173,7 @@ class HypixelClient {
   /**
    * Returns information about the key.
    */
-  async getKey() {
+  async getKeyInfo() {
     try {
       const data = await fetch(`${this.API}key?key=${this.key}&key=${this.key}`);
       const body = await data.json();
