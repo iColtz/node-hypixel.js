@@ -11,6 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/iColtz/node-hypixel.js.git"
   },
+  "keywords": [
+    "hypixel",
+    "api"
+  ],
   "author": "iColtz",
   "license": "MIT",
   "bugs": {
