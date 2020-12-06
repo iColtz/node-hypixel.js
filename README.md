@@ -46,4 +46,4 @@ It's simple go on Minecraft [Hypixel](https://hypixel.net/) server, and type the
 	Go to `https://api.mojang.com/users/profiles/minecraft/DISPLAY_NAME_HERE` and change the end of the url to use  players display name.
 
 ## Author
-Author: iColtz
+Author: [iColtz](https://github.com/iColtz)
