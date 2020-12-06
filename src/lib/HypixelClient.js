@@ -8,6 +8,10 @@ class HypixelClient {
    * @param {string} key - Players API key.
    */
   constructor(key) {
+    /**
+     * The players API key.
+     * @type {string}
+     */
     this.key = key;
 
     /**
