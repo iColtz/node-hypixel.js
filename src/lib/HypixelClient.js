@@ -10,21 +10,29 @@ class HypixelClient {
   constructor(key) {
     this.key = key;
 
+    /**
+     * Fetchs data from Hypixel's Public API.
+     * @param {string} path - The path to fetch from.
+     */
+    this._fetch = async (path) => {
+      try {
+        const data = await fetch(path);
+        const body = await data.json();
+        return body;
+      }
+      catch (error) {
+        throw new Error(error);
+      }
+    };
+
     this.skyblock = {
       /**
        * Fetchs a players auctions.
        * @param {string} method - The method on how to fetch the players auction, either player, profile or uuid.
        * @param {string} query - The players UUID, profile or player.
        */
-      async _getAuction(method, query) {
-        try {
-          const data = await fetch(`${API}skyblock/auction?key=${key}&${method}=${query}`);
-          const body = await data.json();
-          return body;
-        }
-        catch (error) {
-          throw new Error(error);
-        }
+      _getAuction(method, query) {
+        return this._fetch(`${API}skyblock/auction?key=${key}&${method}=${query}`);
       },
 
       /**
@@ -56,42 +64,21 @@ class HypixelClient {
        * @param {number} page - The auction page index.
        */
       async getAuctions(page = 0) {
-        try {
-          const data = await fetch(`${API}skyblock/auctions?key=${key}&page=${page}`);
-          const body = await data.json();
-          return body;
-        }
-        catch (error) {
-          throw new Error(error);
-        }
+        return this._fetch(`${API}skyblock/auctions?key=${key}&page=${page}`);
       },
 
       /**
        * Returns the list of products along with their sell summary, buy summary and quick status.
        */
       async getBazaar() {
-        try {
-          const data = await fetch(`${API}skyblock/bazaar?key=${key}`);
-          const body = await data.json();
-          return body;
-        }
-        catch (error) {
-          throw new Error(error);
-        }
+        return this._fetch(`${API}skyblock/bazaar?key=${key}`);
       },
 
       /**
        * Returns SkyBlock news, including a title, description and a thread.
        */
       async getNews() {
-        try {
-          const data = await fetch(`${API}skyblock/news?key=${key}`);
-          const body = await data.json();
-          return body;
-        }
-        catch (error) {
-          throw new Error(error);
-        }
+        return this._fetch(`${API}skyblock/news?key=${key}`);
       },
 
       /**
@@ -99,14 +86,7 @@ class HypixelClient {
        * @param {string} profile - The profile ID.
        */
       async getProfile(profile) {
-        try {
-          const data = await fetch(`${API}skyblock/profile?key=${key}&profile=${profile}`);
-          const body = await data.json();
-          return body;
-        }
-        catch (error) {
-          throw new Error(error);
-        }
+        return this._fetch(`${API}skyblock/profile?key=${key}&profile=${profile}`);
       },
 
       /**
@@ -114,32 +94,17 @@ class HypixelClient {
        * @param {string} uuid - The players UUID.
        */
       async getProfiles(uuid) {
-        try {
-          const data = await fetch(`${API}skyblock/profiles?key=${key}&uuid=${uuid}`);
-          const body = await data.json();
-          return body;
-        }
-        catch (error) {
-          throw new Error(error);
-        }
+        return this._fetch(`${API}skyblock/profiles?key=${key}&uuid=${uuid}`);
       },
     };
   }
-
   /**
    * Fetchs a player.
    * @param {string} method - The method on how to fetch the player, either uuid or name.
    * @param {string} query - The players UUID or display name.
    */
-  async _getPlayer(method, query) {
-    try {
-      const data = await fetch(`${API}player?key=${this.key}&${method}=${query}`);
-      const body = await data.json();
-      return body;
-    }
-    catch (error) {
-      throw new Error(error);
-    }
+  _getPlayer(method, query) {
+    return this._fetch(`${API}player?key=${this.key}&${method}=${query}`);
   }
 
   /**
@@ -154,7 +119,7 @@ class HypixelClient {
    * Returns the players data.
    * @param {string} uuid - The UUID of the player.
    */
-  async getPlayerByUUID(uuid) {
+  getPlayerByUUID(uuid) {
     return this._getPlayer('uuid', uuid);
   }
 
@@ -163,15 +128,8 @@ class HypixelClient {
    * @param {string} method - The method on how to fetch the player status.
    * @param {string} query - The players UUID.
    */
-  async _getPlayerStats(method, query) {
-    try {
-      const data = await fetch(`${API}status?key=${this.key}&${method}=${query}`);
-      const body = await data.json();
-      return body;
-    }
-    catch (error) {
-      throw new Error(error);
-    }
+  _getPlayerStats(method, query) {
+    return this._fetch(`${API}status?key=${this.key}&${method}=${query}`);
   }
 
   /**
@@ -185,57 +143,29 @@ class HypixelClient {
   /**
    * Get the current online player count of Hypixel.
    */
-  async getPlayerCount() {
-    try {
-      const data = await fetch(`${API}playerCount?key=${this.key}`);
-      const body = await data.json();
-      return body;
-    }
-    catch (error) {
-      throw new Error(error);
-    }
+  getPlayerCount() {
+    return this._fetch(`${API}playerCount?key=${this.key}`);
   }
 
   /**
    * Returns list of boosters.
    */
-  async getBoosters() {
-    try {
-      const data = await fetch(`${API}boosters?key=${this.key}`);
-      const body = await data.json();
-      return body;
-    }
-    catch (error) {
-      throw new Error(error);
-    }
+  getBoosters() {
+    return this._fetch(`${API}boosters?key=${this.key}`);
   }
 
   /**
    * Returns the player count of each public game + mode on the server.
    */
-  async getGameCounts() {
-    try {
-      const data = await fetch(`${API}gameCounts?key=${this.key}`);
-      const body = await data.json();
-      return body;
-    }
-    catch (error) {
-      throw new Error(error);
-    }
+  getGameCounts() {
+    return this._fetch(`${API}gameCounts?key=${this.key}`);
   }
 
   /**
    * Returns a list of the leaderboards and their current standings for games.
    */
-  async getLeaderboard() {
-    try {
-      const data = await fetch(`${API}leaderboards?key=${this.key}`);
-      const body = await data.json();
-      return body;
-    }
-    catch (error) {
-      throw new Error(error);
-    }
+  getLeaderboard() {
+    return this._fetch(`${API}leaderboards?key=${this.key}`);
   }
 
   /**
@@ -243,15 +173,8 @@ class HypixelClient {
    * @param {string} method - The method on how to fetch the guild, either byUuid or byName.
    * @param {string} query - The players UUID or displayname.
    */
-  async _findGuild(method, query) {
-    try {
-      const data = await fetch(`${API}findGuild?key=${this.key}&${method}=${query}`);
-      const body = await data.json();
-      return body;
-    }
-    catch (error) {
-      throw new Error(error);
-    }
+  _findGuild(method, query) {
+    this._fetch(`${API}findGuild?key=${this.key}&${method}=${query}`);
   }
 
   /**
@@ -274,44 +197,23 @@ class HypixelClient {
    * Returns the friends list of a player.
    * @param {string} uuid - The UUID of the player.
    */
-  async getFriends(uuid) {
-    try {
-      const data = await fetch(`${API}friends?key=${this.key}&uuid=${uuid}`);
-      const body = await data.json();
-      return body;
-    }
-    catch (error) {
-      throw new Error(error);
-    }
+  getFriends(uuid) {
+    return this._fetch(`${API}friends?key=${this.key}&uuid=${uuid}`);
   }
 
   /**
    * Returns information about the key.
    */
-  async getKeyInfo() {
-    try {
-      const data = await fetch(`${API}key?key=${this.key}&key=${this.key}`);
-      const body = await data.json();
-      return body;
-    }
-    catch (error) {
-      throw new Error(error);
-    }
+  getKeyInfo() {
+    return this._fetch(`${API}key?key=${this.key}&key=${this.key}`);
   }
 
   /**
    * Returns the recent games of a player.
    * @param {string} uuid - The UUID of the player.
    */
-  async getRecentGames(uuid) {
-    try {
-      const data = await fetch(`${API}recentGames?key=${this.key}&uuid=${uuid}`);
-      const body = await data.json();
-      return body;
-    }
-    catch (error) {
-      throw new Error(error);
-    }
+  getRecentGames(uuid) {
+    return this._fetch(`${API}recentGames?key=${this.key}&uuid=${uuid}`);
   }
   /**
    * Provides an endpoint to retrieve resources which don't change often.
@@ -324,29 +226,15 @@ class HypixelClient {
    * • skyblock/collections
    * • skyblock/skills
    */
-  async getResources(resource) {
-    try {
-      const data = await fetch(`${API}resources/${resource}`);
-      const body = await data.json();
-      return body;
-    }
-    catch (error) {
-      throw new Error(error);
-    }
+  getResources(resource) {
+    return this._fetch(`${API}resources/${resource}`);
   }
 
   /**
    * Returns stats about Watchdogs and staff bans.
    */
-  async getWatchdogStats() {
-    try {
-      const data = await fetch(`${API}watchdogstats?key=${this.key}`);
-      const body = await data.json();
-      return body;
-    }
-    catch (error) {
-      throw new Error(error);
-    }
+  getWatchdogStats() {
+    return this._fetch(`${API}watchdogstats?key=${this.key}`);
   }
 }
 
