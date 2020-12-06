@@ -51,6 +51,21 @@ class HypixelClient {
        */
       getAuctionsByPlayer(player) {
         return this._getAuction('player', player);
+      },
+
+      /**
+       * Returns SkyBlock auctions that are currently active in the in-game auction house.
+       * @param {number} page - The auction page index.
+       */
+      async getAuctions(page = 0) {
+        try {
+          const data = await fetch(`${this.API}player?key=${this.key}&page=${page}`);
+          const body = await data.json();
+          return body;
+        }
+        catch (error) {
+          throw new Error(error);
+        }
       }
     };
   }
