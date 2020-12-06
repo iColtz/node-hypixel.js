@@ -1,5 +1,5 @@
 {
-  "name": "hypixel.js",
+  "name": "node-hypixel.js",
   "version": "1.0.0",
   "description": "Simple node.js lib for using Hypixel's API, with 100% API coverage!",
   "main": "./src/index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iColtz/hypixel-api.git"
+    "url": "git+https://github.com/iColtz/node-hypixel.js.git"
   },
   "author": "iColtz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/iColtz/hypixel-api/issues"
+    "url": "https://github.com/iColtz/node-hypixel.js/issues"
   },
-  "homepage": "https://github.com/iColtz/hypixel-api#readme",
+  "homepage": "https://github.com/iColtz/node-hypixel.js#readme",
   "devDependencies": {
     "eslint": "^7.15.0",
     "nodemon": "^2.0.6"
