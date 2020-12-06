@@ -98,6 +98,7 @@ class HypixelClient {
 
       /**
        * Returns a SkyBlock profile's data.
+       * @param {string} profile - The profile ID.
        */
       async getProfile(profile) {
         try {
