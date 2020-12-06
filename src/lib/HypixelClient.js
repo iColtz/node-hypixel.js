@@ -9,6 +9,34 @@ class HypixelClient {
     this.key = key;
 
     this.API = 'https://api.hypixel.net/';
+
+    const API = this.API;
+
+    this.skyblock = {
+      /**
+       * Fetchs a players auctions.
+       * @param {string} method - The method on how to fetch the players auction, either player, profile or uuid.
+       * @param {string} query - The players UUID, profile or player.
+       */
+      async _getAuction(method, query) {
+        try {
+          const data = await fetch(`${API}skyblock/auction?key=${key}&${method}=${query}`);
+          const body = await data.json();
+          return body;
+        }
+        catch (error) {
+          throw new Error(error);
+        }
+      },
+
+      /**
+       * Returns the players auctions.
+       * @param {string} uuid - The players UUID.
+       */
+      getAuctionByUUID(uuid) {
+        return this._getAuction('uuid', uuid);
+      }
+    };
   }
 
   /**
