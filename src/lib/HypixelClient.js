@@ -109,6 +109,21 @@ class HypixelClient {
           throw new Error(error);
         }
       },
+
+      /**
+       * Returns an array of SkyBlock profile's data.
+       * @param {string} uuid - The players UUID.
+       */
+      async getProfiles(uuid) {
+        try {
+          const data = await fetch(`${API}skyblock/profiles?key=${key}&uuid=${uuid}`);
+          const body = await data.json();
+          return body;
+        }
+        catch (error) {
+          throw new Error(error);
+        }
+      },
     };
   }
 
