@@ -1,29 +1,29 @@
 <div align="center">
-    <a href="https://nodei.co/npm/hypixel.js/"><img src="https://nodei.co/npm/hypixel.js.png?downloads=true" alt="NPM Install Info" /></a>
+    <a href="https://nodei.co/npm/node-hypixel.js/"><img src="https://nodei.co/npm/node-hypixel.js.png?downloads=true" alt="NPM Install Info" /></a>
   <br />
   <p>
-    <a href="https://www.npmjs.com/package/hypixel.js"><img src="https://img.shields.io/npm/v/hypixel.js.svg" alt="NPM Version" /></a>
-    <a href="https://www.npmjs.com/package/hypixel.js"><img src="https://img.shields.io/npm/dt/hypixel.js.svg" alt="NPM Downloads" /></a>
-    <a href="https://img.shields.io/david/iColtz/hypixel.js"><img src="https://img.shields.io/david/iColtz/hypixel.js" alt="Deps" /></a>
+    <a href="https://www.npmjs.com/package/node-hypixel.js"><img src="https://img.shields.io/npm/v/node-hypixel.js.svg" alt="NPM Version" /></a>
+    <a href="https://www.npmjs.com/package/node-hypixel.js"><img src="https://img.shields.io/npm/dt/node-hypixel.js.svg" alt="NPM Downloads" /></a>
+    <a href="https://img.shields.io/david/iColtz/node-hypixel.js"><img src="https://img.shields.io/david/iColtz/node-hypixel.js" alt="Deps" /></a>
   </p>
   <p>
   </p>
 </div>
 
-# Hypixel.js
+# node-hypixel.js
 > Simple node.js lib for using Hypixel's API, with 100% API coverage! Making it easy to fetch data about players, resources, skyblock and much more!
 
 **Installation**
-`npm install hypixel.js` 
+`npm install node-hypixel.js` 
 
 ## Documentation
 Comming soon!
-Plus pro dev's use the [source code](https://github.com/iColtz/hypixel.js/blob/main/src/lib/HypixelClient.js).
+Plus pro dev's use the [source code](https://github.com/iColtz/node-hypixel.js/blob/main/src/lib/HypixelClient.js).
 
 ## Example
 ```js
 // Create a new HypixelClient instance.
-const { HypixelClient } = require('hypixel.js');
+const { HypixelClient } = require('node-hypixel.js');
 const client = new HypixelClient('API KEY');
 
 // Get player by their display name.
