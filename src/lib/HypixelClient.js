@@ -1,5 +1,7 @@
 const fetch = require('node-fetch');
 
+const API = 'https://api.hypixel.net/';
+
 class HypixelClient {
   /**
    * Hypixel Client.
@@ -7,10 +9,6 @@ class HypixelClient {
    */
   constructor(key) {
     this.key = key;
-
-    this.API = 'https://api.hypixel.net/';
-
-    const API = this.API;
 
     this.skyblock = {
       /**
@@ -135,7 +133,7 @@ class HypixelClient {
    */
   async _getPlayer(method, query) {
     try {
-      const data = await fetch(`${this.API}player?key=${this.key}&${method}=${query}`);
+      const data = await fetch(`${API}player?key=${this.key}&${method}=${query}`);
       const body = await data.json();
       return body;
     }
@@ -167,7 +165,7 @@ class HypixelClient {
    */
   async _getPlayerStats(method, query) {
     try {
-      const data = await fetch(`${this.API}status?key=${this.key}&${method}=${query}`);
+      const data = await fetch(`${API}status?key=${this.key}&${method}=${query}`);
       const body = await data.json();
       return body;
     }
@@ -189,7 +187,7 @@ class HypixelClient {
    */
   async getPlayerCount() {
     try {
-      const data = await fetch(`${this.API}playerCount?key=${this.key}`);
+      const data = await fetch(`${API}playerCount?key=${this.key}`);
       const body = await data.json();
       return body;
     }
@@ -203,7 +201,7 @@ class HypixelClient {
    */
   async getBoosters() {
     try {
-      const data = await fetch(`${this.API}boosters?key=${this.key}`);
+      const data = await fetch(`${API}boosters?key=${this.key}`);
       const body = await data.json();
       return body;
     }
@@ -217,7 +215,7 @@ class HypixelClient {
    */
   async getGameCounts() {
     try {
-      const data = await fetch(`${this.API}gameCounts?key=${this.key}`);
+      const data = await fetch(`${API}gameCounts?key=${this.key}`);
       const body = await data.json();
       return body;
     }
@@ -231,7 +229,7 @@ class HypixelClient {
    */
   async getLeaderboard() {
     try {
-      const data = await fetch(`${this.API}leaderboards?key=${this.key}`);
+      const data = await fetch(`${API}leaderboards?key=${this.key}`);
       const body = await data.json();
       return body;
     }
@@ -247,7 +245,7 @@ class HypixelClient {
    */
   async _findGuild(method, query) {
     try {
-      const data = await fetch(`${this.API}findGuild?key=${this.key}&${method}=${query}`);
+      const data = await fetch(`${API}findGuild?key=${this.key}&${method}=${query}`);
       const body = await data.json();
       return body;
     }
@@ -278,7 +276,7 @@ class HypixelClient {
    */
   async getFriends(uuid) {
     try {
-      const data = await fetch(`${this.API}friends?key=${this.key}&uuid=${uuid}`);
+      const data = await fetch(`${API}friends?key=${this.key}&uuid=${uuid}`);
       const body = await data.json();
       return body;
     }
@@ -292,7 +290,7 @@ class HypixelClient {
    */
   async getKeyInfo() {
     try {
-      const data = await fetch(`${this.API}key?key=${this.key}&key=${this.key}`);
+      const data = await fetch(`${API}key?key=${this.key}&key=${this.key}`);
       const body = await data.json();
       return body;
     }
@@ -307,7 +305,7 @@ class HypixelClient {
    */
   async getRecentGames(uuid) {
     try {
-      const data = await fetch(`${this.API}recentGames?key=${this.key}&uuid=${uuid}`);
+      const data = await fetch(`${API}recentGames?key=${this.key}&uuid=${uuid}`);
       const body = await data.json();
       return body;
     }
@@ -328,7 +326,7 @@ class HypixelClient {
    */
   async getResources(resource) {
     try {
-      const data = await fetch(`${this.API}resources/${resource}`);
+      const data = await fetch(`${API}resources/${resource}`);
       const body = await data.json();
       return body;
     }
@@ -342,7 +340,7 @@ class HypixelClient {
    */
   async getWatchdogStats() {
     try {
-      const data = await fetch(`${this.API}watchdogstats?key=${this.key}`);
+      const data = await fetch(`${API}watchdogstats?key=${this.key}`);
       const body = await data.json();
       return body;
     }
