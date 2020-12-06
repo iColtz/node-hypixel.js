@@ -1,0 +1,12 @@
+# Packages
+node_modules/
+
+# Miscellaneous
+.vscode/
+.github/
+test/
+
+# NPM Ignore
+.eslintrc.js
+.gitattributes
+.gitignore
