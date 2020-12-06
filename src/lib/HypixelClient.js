@@ -71,7 +71,7 @@ class HypixelClient {
       /**
        * Returns the list of products along with their sell summary, buy summary and quick status.
        */
-      async bazaar() {
+      async getBazaar() {
         try {
           const data = await fetch(`${API}skyblock/bazaar?key=${key}`);
           const body = await data.json();
