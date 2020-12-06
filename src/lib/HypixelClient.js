@@ -59,7 +59,7 @@ class HypixelClient {
        */
       async getAuctions(page = 0) {
         try {
-          const data = await fetch(`${this.API}skyblock/auctions?key=${this.key}&page=${page}`);
+          const data = await fetch(`${API}skyblock/auctions?key=${this.key}&page=${page}`);
           const body = await data.json();
           return body;
         }
