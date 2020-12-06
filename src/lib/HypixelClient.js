@@ -73,7 +73,7 @@ class HypixelClient {
        */
       async bazaar() {
         try {
-          const data = await fetch(`${API}skyblock/bazaar?key=${this.key}`);
+          const data = await fetch(`${API}skyblock/bazaar?key=${key}`);
           const body = await data.json();
           return body;
         }
