@@ -1,7 +1,7 @@
 {
   "name": "hypixel-api",
   "version": "1.0.0",
-  "description": "Simple hypixel api.",
+  "description": "Simple node.js lib for using Hypixel's API, with 100% API coverage!",
   "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
