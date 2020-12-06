@@ -94,7 +94,21 @@ class HypixelClient {
         catch (error) {
           throw new Error(error);
         }
-      }
+      },
+
+      /**
+       * Returns a SkyBlock profile's data.
+       */
+      async getProfile(profile) {
+        try {
+          const data = await fetch(`${API}skyblock/profile?key=${key}&profile=${profile}`);
+          const body = await data.json();
+          return body;
+        }
+        catch (error) {
+          throw new Error(error);
+        }
+      },
     };
   }
 
