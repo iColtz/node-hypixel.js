@@ -16,6 +16,10 @@
 **Installation**
 `npm install hypixel.js` 
 
+## Documentation
+Comming soon!
+Plus pro dev's use the [source code](https://github.com/iColtz/hypixel.js/blob/main/src/lib/HypixelClient.js).
+
 ## Example
 ```js
 // Create a new HypixelClient instance.
