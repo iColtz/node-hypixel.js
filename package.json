@@ -1,5 +1,5 @@
 {
-  "name": "hypixel-api",
+  "name": "hypixel.js",
   "version": "1.0.0",
   "description": "Simple node.js lib for using Hypixel's API, with 100% API coverage!",
   "main": "./src/index.js",
