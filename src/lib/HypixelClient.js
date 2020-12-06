@@ -33,7 +33,7 @@ class HypixelClient {
        * Returns the players auctions.
        * @param {string} uuid - The players UUID.
        */
-      getAuctionByUUID(uuid) {
+      getAuctionsByUUID(uuid) {
         return this._getAuction('uuid', uuid);
       },
 
