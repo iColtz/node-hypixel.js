@@ -30,7 +30,7 @@ class HypixelClient {
       },
 
       /**
-       * Returns the players auctions.
+       * Returns the SkyBlock auctions by auction UUID.
        * @param {string} uuid - The players UUID.
        */
       getAuctionsByUUID(uuid) {
@@ -38,7 +38,7 @@ class HypixelClient {
       },
 
       /**
-       * Returns the players auctions.
+       * Returns the SkyBlock auctions by profile.
        * @param {string} profile - The players profile ID.
        */
       getAuctionsByProfile(profile) {
@@ -46,7 +46,7 @@ class HypixelClient {
       },
 
       /**
-       * Returns the players auctions.
+       * Returns the SkyBlock auctions by player.
        * @param {string} player - The players player ID.
        */
       getAuctionsByPlayer(player) {
