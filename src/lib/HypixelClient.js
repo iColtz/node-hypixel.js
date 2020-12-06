@@ -43,6 +43,14 @@ class HypixelClient {
        */
       getAuctionsByProfile(profile) {
         return this._getAuction('profile', profile);
+      },
+
+      /**
+       * Returns the players auctions.
+       * @param {string} player - The players player ID.
+       */
+      getAuctionsByPlayer(player) {
+        return this._getAuction('player', player);
       }
     };
   }
