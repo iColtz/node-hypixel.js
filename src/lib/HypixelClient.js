@@ -66,6 +66,20 @@ class HypixelClient {
         catch (error) {
           throw new Error(error);
         }
+      },
+
+      /**
+       * Returns the list of products along with their sell summary, buy summary and quick status.
+       */
+      async bazaar() {
+        try {
+          const data = await fetch(`${API}skyblock/bazaar?key=${this.key}`);
+          const body = await data.json();
+          return body;
+        }
+        catch (error) {
+          throw new Error(error);
+        }
       }
     };
   }
