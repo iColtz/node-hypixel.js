@@ -30,6 +30,8 @@ class HypixelClient {
     };
 
     this.skyblock = {
+      _fetch: this._fetch,
+
       /**
        * Fetchs a players auctions.
        * @param {string} method - The method on how to fetch the players auction, either player, profile or uuid.
