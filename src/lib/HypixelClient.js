@@ -206,7 +206,7 @@ class HypixelClient {
       return body;
     }
     catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
   }
 
