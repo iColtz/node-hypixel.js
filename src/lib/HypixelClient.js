@@ -80,6 +80,20 @@ class HypixelClient {
         catch (error) {
           throw new Error(error);
         }
+      },
+
+      /**
+       * Returns SkyBlock news, including a title, description and a thread.
+       */
+      async getNews() {
+        try {
+          const data = await fetch(`${API}skyblock/news?key=${key}`);
+          const body = await data.json();
+          return body;
+        }
+        catch (error) {
+          throw new Error(error);
+        }
       }
     };
   }
