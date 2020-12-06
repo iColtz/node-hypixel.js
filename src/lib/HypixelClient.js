@@ -102,6 +102,7 @@ class HypixelClient {
       },
     };
   }
+
   /**
    * Fetchs a player.
    * @param {string} method - The method on how to fetch the player, either uuid or name.
