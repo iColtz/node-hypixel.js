@@ -11,39 +11,44 @@
 </div>
 
 # node-hypixel.js
+
 > Simple node.js lib for using Hypixel's API, with 100% API coverage! Making it easy to fetch data about players, resources, skyblock and much more!
 
 **Installation**
-`npm install node-hypixel.js` 
+`npm install node-hypixel.js`
 
 ## Documentation
-Comming soon!
-Plus pro dev's use the [source code](https://github.com/iColtz/node-hypixel.js/blob/main/src/lib/HypixelClient.js).
+
+https://node-hypixel.tiiny.site/index.html
 
 ## Example
+
 ```js
 // Create a new HypixelClient instance.
-const { HypixelClient } = require('node-hypixel.js');
-const client = new HypixelClient('API KEY');
+const { HypixelClient } = require("node-hypixel.js");
+const client = new HypixelClient("API KEY");
 
 // Get player by their display name.
-client.getPlayerByDisplayname('iColtz')
+client
+  .getPlayerByDisplayname("iColtz")
   .then((player) => {
-	// Console log the player.
+    // Console log the player.
     console.log(player);
   })
-  .catch((error) => {	
-	// Log the error if there is one.
+  .catch((error) => {
+    // Log the error if there is one.
     console.log(error);
   });
 ```
 
 ## FAQ
+
 - **How to obtain an API key?**
-It's simple go on Minecraft [Hypixel](https://hypixel.net/) server, and type the command `/api` to obtain an api key.
+  It's simple go on Minecraft [Hypixel](https://hypixel.net/) server, and type the command `/api` to obtain an api key.
 
 - **How to get my UUID?**
-	Go to `https://api.mojang.com/users/profiles/minecraft/DISPLAY_NAME_HERE` and change the end of the url to use  players display name.
+  Go to `https://api.mojang.com/users/profiles/minecraft/DISPLAY_NAME_HERE` and change the end of the url to use players display name.
 
 ## Author
+
 Author: [iColtz](https://github.com/iColtz)
