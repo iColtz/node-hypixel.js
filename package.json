@@ -6,7 +6,8 @@
   "types": "./src/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./test/index.js"
+    "dev": "nodemon ./test/index.js",
+    "doc": "jsdoc -c jsdoc.json"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "eslint": "^7.15.0",
     "jsdoc": "^3.6.6",
+    "minami": "^1.2.3",
     "nodemon": "^2.0.6"
   },
   "dependencies": {
