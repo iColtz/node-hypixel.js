@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<body onload="loadDocs()">
+  <script>
+    function loadDocs() {
+      console.log(window.location.href);
+      window.location.href = window.location.href.slice(0, -10) + 'docs/index.html';
+    }
+  </script>
+</body>
+</html>
