@@ -24,6 +24,7 @@
   "homepage": "https://github.com/iColtz/node-hypixel.js#readme",
   "devDependencies": {
     "eslint": "^7.15.0",
+    "jsdoc": "^3.6.6",
     "nodemon": "^2.0.6"
   },
   "dependencies": {
